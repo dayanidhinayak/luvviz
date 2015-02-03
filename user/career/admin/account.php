@@ -114,7 +114,7 @@ include_once("topbar.php");
 							$res2=mysql_fetch_array($fet2);
                                                         $bro_min=$brought-$res2['stpoint'];
                                                         
-                                                        echo "--".$amin=$pair-$res1['spoint'];
+                                                        $amin=$pair-$res1['spoint'];
 							$axmin=$pair-$res1['spoint'];
 							if($amin!=0)
 								{
@@ -132,8 +132,8 @@ include_once("topbar.php");
 							   $usercount=mysql_numrows($founduser);
 							   $cou++;
 							}
-							echo $cou;
-							if(($pair1*2+3)<=($cou-1))
+							 $cou;
+							if(($pair1*2+3)<=21)
 							{
 							$a=$amin*100;
 							}else
