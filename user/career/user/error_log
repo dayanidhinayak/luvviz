@@ -1,0 +1,27 @@
+[24-May-2014 15:06:57 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/luvviz/public_html/luvviz/user/loyality/user/position.php on line 6
+[24-May-2014 15:10:37 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/luvviz/public_html/luvviz/user/loyality/user/position.php on line 6
+[28-May-2014 13:48:26 UTC] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'root'@'localhost' (using password: NO) in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 56
+[28-May-2014 13:48:26 UTC] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 56
+[28-May-2014 13:48:26 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 57
+[28-May-2014 13:49:07 UTC] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'root'@'localhost' (using password: NO) in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 56
+[28-May-2014 13:49:07 UTC] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 56
+[28-May-2014 13:49:07 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 57
+[28-May-2014 13:49:19 UTC] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'root'@'localhost' (using password: NO) in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 56
+[28-May-2014 13:49:19 UTC] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 56
+[28-May-2014 13:49:19 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 57
+[28-May-2014 13:50:48 UTC] PHP Warning:  include_once(datacase.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 1
+[28-May-2014 13:50:48 UTC] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening 'datacase.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 1
+[28-May-2014 13:50:48 UTC] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'root'@'localhost' (using password: NO) in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 57
+[28-May-2014 13:50:48 UTC] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 57
+[28-May-2014 13:50:48 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/luvviz/public_html/luvviz/user/loyality/user/home.php on line 58
+[31-May-2014 08:11:57 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/luvviz/public_html/luvviz/user/career/user/prize.php on line 67
+[31-May-2014 08:12:04 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/luvviz/public_html/luvviz/user/career/user/prize.php on line 67
+[31-May-2014 08:12:05 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/luvviz/public_html/luvviz/user/career/user/prize.php on line 67
+[31-May-2014 08:13:41 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/luvviz/public_html/luvviz/user/career/user/prize.php on line 67
+[31-May-2014 08:17:43 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/luvviz/public_html/luvviz/user/career/user/prize.php on line 137
+[31-May-2014 08:17:49 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/luvviz/public_html/luvviz/user/career/user/prize.php on line 137
+[31-May-2014 08:34:35 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/luvviz/public_html/luvviz/user/career/user/prize.php on line 151
+[05-Jun-2014 20:34:51 UTC] PHP Parse error:  syntax error, unexpected T_STRING in /home/luvviz/public_html/luvviz/user/career/user/prize.php on line 160
+[05-Jun-2014 20:35:07 UTC] PHP Parse error:  syntax error, unexpected T_STRING in /home/luvviz/public_html/luvviz/user/career/user/prize.php on line 160
+[05-Jun-2014 20:35:59 UTC] PHP Parse error:  syntax error, unexpected ':' in /home/luvviz/public_html/luvviz/user/career/user/prize.php on line 160
+[05-Jun-2014 20:36:18 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/luvviz/public_html/luvviz/user/career/user/prize.php on line 160

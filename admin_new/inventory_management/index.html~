@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table>
+		<tr><td><a href="create_category.php">Add Category</a></td></tr>
+		<tr><td><a href="add_product.php">Add Product</a></td></tr>
+		<tr><td><a href="view_category.php">View Category</a></td></tr>
+		<tr><td><a href="view_product.php">View Products</a></td></tr>
+		<tr><td><a href="add_image.php">Add Image For Products</a></td></tr>
+		<tr><td><a href="create_warehouse.php">Add Warehouse</a></td></tr>
+		<tr><td><a href="view_warehouse.php">View Warehouse</a></td></tr>
+		<tr><td><a href="view_instockdetails.php">Instock Products</a></td></tr>
+		<tr><td><a href="view_outstockdetails.php">Outstock Products</a></td></tr>
+		<tr><td><a href="purchase_oder.php">Purcahse Order Details</a></td></tr>
+		<tr><td><a href="return_products.php">View Return Products</a></td></tr>
+		<tr><td><a href="export.php">Import/Export</a></td></tr>
+
+
+
+</table>
+</body>
+</html>

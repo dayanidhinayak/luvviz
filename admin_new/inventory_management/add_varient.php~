@@ -1,0 +1,105 @@
+<?php 
+
+include_once('function.php');
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+
+<title></title>
+<script src="jquery.min.js"></script>
+        <script>
+            $(document).ready (function () {
+			
+			$('.res').hide();
+                $('.btnAdd').click (function () {       
+                    $('.buttons').append('<div class="div1" style="height:50px;  width:600px; float:left;"><input type="text" name="name[]" id="name" ><br /><input type="button" class="btnRemove" value="Remove"><br></div>'); 
+					
+					      // end append
+					
+					//$('div').addClass("div1 ui-state-default");
+					
+					$('div .btnRemove').last().click (function () { 
+						$(this).parent().last().remove();    
+					}); // end click
+					
+					
+					
+					
+							
+						
+						
+                }); // end click 
+				
+				        
+
+            }); // end ready
+        </script>
+
+</head>
+
+
+
+<body>
+
+<form name="form" action="insert_varient.php" method="post" enctype="multipart/form-data">
+
+<table>
+
+<th colspan="2">Add Varient</th>
+
+
+
+<tr>
+
+     <td>Product Name</td>
+
+	 <td>
+		<select name="product_name" />
+	 <option value="">Select</option>
+			<?php
+			$que=mysql_query("select * from `product`");
+			while($res=mysql_fetch_array($que))
+			{
+			?>
+			<option value="<?php echo $res['id'];?>"><?php echo $res['product_name'];?></option>
+			<?php
+			}
+			?>
+			</select>	 
+	 </td>
+
+</tr>
+</table>
+
+<div class="buttons"></div>
+
+
+
+   <input type="button" class="btnAdd learnmore" value="Add NewVarient" style="border:none;">
+
+	
+
+
+
+
+
+
+
+
+
+<input type="submit" name="submit" value="Submit" />
+
+
+
+</form>
+
+</body>
+
+</html>

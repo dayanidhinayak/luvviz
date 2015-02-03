@@ -1,0 +1,8 @@
+<?php
+ini_set("dispaly_errors",1);
+include_once("function.php");
+$product_id=$_GET['a'];
+$bill_id=$_GET['b'];
+$query=mysql_query("delete  from temp_billinfo where `bill_id`='$bill_id' and `product_id`='$product_id'");
+
+?>

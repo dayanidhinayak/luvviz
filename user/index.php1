@@ -1,0 +1,263 @@
+<?php
+include_once("function.php");
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script>
+function getcategory(idval)
+{
+if (window.XMLHttpRequest)
+
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+ {
+ xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+ }
+xmlhttp.onreadystatechange=function()
+ {
+ if (xmlhttp.readyState==4 && xmlhttp.status==200)
+ {
+var result=xmlhttp.responseText;
+
+document.getElementById(d).innerHTML=result;
+//window.location.reload();
+
+	}
+}
+xmlhttp.open("GET","topproduct.php?q="+idval,true);
+
+xmlhttp.send();
+  
+  
+  
+  
+
+
+
+}
+</script>
+
+</head>
+
+<body>
+<div id="topbar"> 
+			<div id="topbarbox">
+						<div id="topbarbox1">  <p style="font-size:14px; margin:3px; color:#666666; float:left;">  Free Shipping*
+                                                                           Cash on Delivery
+                                                                           30 Days-Return
+                                                  Customer Support (24x7) 0124-6128000
+												  <div class="topmenu1" style="float:left; margin-left:110px;">help</div>
+												  
+												  <div class="topmenu1" style="float:left;">  Sign up and get Rs. 2000</div>
+												  <div class="topmenu1" style="float:left;">Login</div>
+												  </p>
+												    
+			  </div>
+						<div id="logo"><img src="images/logo.jpg" /></div>
+						<div id="serch" style="margin-top:30px;"><table width="550">
+  <tr>
+    <td><input type="text" style="height:30px; width:400px;"/></td>
+    <td style=" width:110px; font-size:14px; color:#CCCCCC; background-color: #EB7C00; width:140px; text-align:center; border-top-right-radius:5px 5px; border-bottom-right-radius:5px 5px; ">SERCH</td>
+  </tr>
+</table>
+</div>
+			</div>
+</div>
+<div id="menu">
+			<div id="menu1">
+            <ul  id="navigation" class="fl">
+			<?php
+						$q=mysql_query("select * from `category` where `parent`='0' and `status`='1' ");
+						while($r=mysql_fetch_array($q))
+						{
+						?>
+						      <li> <a href="#" onclick="return getcategory(<?php echo $r['id']?>);"><?php echo $r['category_name']?> </a></li>
+							 <?php
+							 }
+							 ?>
+							 
+							
+						</ul>
+            
+            </div>
+</div>
+
+<div id="topimgbox">
+			<div id="topimgbox1"><img src="images/ShoppingBang_stripe.jpg" width="960" /></div>
+</div>
+
+<div id="contentbar">
+			<div id="contentbar_box">
+							<div id="contentleftbox">
+							<ul style="margin-left:0px; padding-left:0px; margin-top:5px;">
+							<li class="li1"><img src="images/li6.png" style="float:left; margin-top:-5px; margin-right:10px; margin-left:10px; " />New A rrivals</li>
+							<li class="li1"><img src="images/li5.png" style="float:left; margin-right:10px; margin-left:10px; " />Sports Store</li>
+							<li class="li1"><img src="images/li4.png" style="float:left; margin-right:10px; margin-left:10px; " />Watch New TVC</li>
+							<li class="li1"><img src="images/li3.png" style="float:left; margin-right:10px; margin-left:10px; " />Home Mega Loot</li>
+							<li class="li1"><img src="images/li2.png" style="float:left; margin-right:10px; margin-left:10px; " />Clearance Sale</li>
+							<li class="li1"><img src="images/li1.png" style="float:left; margin-right:10px; margin-left:10px; " />Clearance Sale</li>
+							<li class="li2" style="background:#CCCCCC; text-align:center; font-size:13px; font-weight:bold; height:25px; padding-top:7px; 
+							 width:100%; margin-left:0px;">men</li>
+							 
+							 <?php
+							 			$que=mysql_query("select `id` from `category` where `category_name`='Men'");
+										$res=mysql_fetch_array($que);
+										$q1=mysql_query("select * from `category` where `parent`='$res[id]'");
+										while($r1=mysql_fetch_array($q1))
+										{
+										?>
+							 
+							<li class="li2">&rsaquo;    <?php echo $r1['category_name']?></li>
+							<?php
+							}
+							?>
+							<li class="li2" style="background:#CCCCCC; text-align:center; font-size:13px; font-weight:bold; height:25px; padding-top:7px; 
+							 width:100%; margin-left:0px;">Women</li>
+							 <?php
+							 			$que1=mysql_query("select `id` from `category` where `category_name`='Women'");
+										$res1=mysql_fetch_array($que1);
+										$q2=mysql_query("select * from `category` where `parent`='$res1[id]'");
+										while($r2=mysql_fetch_array($q2))
+										{
+										?>
+							<li class="li2">&rsaquo;   <?php echo $r2['category_name']?></li>
+							<?php
+							}
+							?>
+							</ul>
+							</div>
+							<div id="contentmiddlebox"><img src="images/banner.png" /></div>
+							<div id="contentrightbox"><img src="images/rightimg.png"  /><img src="images/rightimg2.png" style="margin-top:10px;"  /></div>
+			</div>
+</div>
+
+<div id="content3">
+			<div id="content3_box">
+						<div id="content3_leftimg"><img src="images/content3.png" /></div>
+						<div id="content3_middleimg"><img src="images/content3img2.png" /></div>
+						<div id="content3_rightimg"><img src="images/content3img3.png" width="229" /><img src="images/content3img4.png" width="227" height="155" 
+						style="margin-top:10px;" /></div>
+			</div>
+</div>
+<div id="content4">
+			<div id="content4_box">
+						<div id="content4_top"><p style="font-weight:bold; margin-top:10px; margin-left:10px;">Top Sellers</p></div>
+						<div class="content4smallbox"><img src="images/contentimg1.png" /><br /><p><span style="font-weight:bold">The vanca</span><br />Sleeve Less Self P...<br /><span style="font-weight:bold">Rs.1099</span></p></div>
+						
+						
+						
+						<div class="content4smallbox"><img src="images/contentimg1.png" /><br /><p><span style="font-weight:bold">The vanca</span><br />Sleeve Less Self P...<br /><span style="font-weight:bold">Rs.1099</span></p></div>
+						
+						
+						
+						<div class="content4smallbox"><img src="images/contentimg1.png" /><br /><p><span style="font-weight:bold">The vanca</span><br />Sleeve Less Self P...<br /><span style="font-weight:bold">Rs.1099</span></p></div>
+						
+						
+						<div class="content4smallbox"><img src="images/contentimg1.png" /><br /><p><span style="font-weight:bold">The vanca</span><br />Sleeve Less Self P...<br /><span style="font-weight:bold">Rs.1099</span></p></div>
+						
+						<div class="content4smallbox"><img src="images/contentimg1.png" /><br /><p><span style="font-weight:bold">The vanca</span><br />Sleeve Less Self P...<br /><span style="font-weight:bold">Rs.1099</span></p></div>
+			</div>
+</div>
+<div id="content5" >
+			<div id="content5_box">
+						<div id="content5_box1">
+									<div id="content5_topbox1"><p style="font-weight:bold; margin-top:10px; margin-left:10px;">Top                                     Brands</p></div>
+									<div class="content5smallbox"><img src="images/content5.jpg" /></div>
+									<div class="content5smallbox"><img src="images/content5.jpg" /></div>
+									<div class="content5smallbox"><img src="images/content5.jpg" /></div>
+									<div class="content5smallbox"><img src="images/content5.jpg" /></div>
+									<div class="content5smallbox"><img src="images/content5.jpg" /></div>
+									<div class="content5smallbox"><img src="images/content5.jpg" /></div>
+									<div class="content5smallbox"><img src="images/content5.jpg" /></div>
+						</div>
+			</div>
+</div>
+
+<div id="content6">
+			<div id="content6box"><h4>Online shopping that helps you make the right choice</h4>
+			<P style="font-size:11px;">We offer online shopping that is stylish, trendy and reliable – the Shopping that is light on your pockets, the Shopping that offers all of your favourite brands and more, the Shopping that is simpler, easier, faster and always Online.<br />
+			<br />
+			At Jabong, we understand shopping better, and therefore, we strive to offer you the best of fashion and elegance. We showcase products from all categories such as clothing, footwear, jewellery, accessories, home & living, personal care, and exotic cosmetics.</P>
+			
+			<h4>The epitome of fashion & style – For we know you need the best!</h4>
+			
+			<P style="font-size:11px;">Jabong, the Online Shopping store, brings to you the chicest collection of latest apparels, footwear, accessories, jewelleries and more. Like you, we too follow the latest in fashion trends and it just helps us bring over thousands of new products exclusively selected for you. Explore big brands like Burberry, Calvin Klein, United Colors of Benetton, Arrow, Esprit, French Connection, Adidas, Reebok, Nike, Clarks, and so many others. While you take the best, we keep looking at what newer designs and styles the likes of Stella McCartney, Robert Cavalli, Zac Posen, and Marc Jacobs orchestrate, just in case, you want more from the shop.</p>
+			
+			<h4>Our Services at your Doorsteps</h4>
+<p style="font-size:11px;">You make up your mind on a product, order it online in few easy clicks, and we deliver it right at your address across India. Just pay for the product, while we ensure Free Shipping all the time, of course, with no strings attached. For those second thoughts after purchase, we have in place a 30-day return option as well.</p>
+
+<h4>Jabong – the 24 x7 Online Fashion & Lifestyle Store for everyone</h4>
+<p style="font-size:11px;">Forget the fashion streets of the world. We, at Jabong, have all that you need to glam up your lifestyle. From extensive range of men’s shirts to exotic dresses for women to funkiest clothes for kids to matching footwear, sports shoes and accessories for everyone, we purvey diversity of choices in online shopping in India under one umbrella. Your Jabong Online Shop has arrived! Do not miss the attractive best buy prices and super discount offers. Get more, pay lesser! Drop a line at care@jabong.com for any query or give us a call at 0124-6128000.</p>
+			</div>
+</div>
+<div id="content7">
+				<div id="content7box">
+							<div class="content7box1">
+							<ul style="list-style:none; line-height:1.5; font-family:Arial, Helvetica, sans-serif; font-size:12px; margin-left:-40px;">
+									<li style="border-bottom:1px solid #666; font-weight:bold;">Service</li>
+									<li>About</li>
+									<li>Contact</li>
+									<li>terms and Conditions</li>
+									<li>Privacy Policy</li>
+									<li>Affiliate Programme</li>
+									<li>Corporate Gifting</li>
+                                  
+							</ul>
+							</div>
+                            
+                            
+<div class="content7box1" style="width:180px;">
+							<ul style="list-style:none; line-height:1.5; font-family:Arial, Helvetica, sans-serif; font-size:12px;">
+									<li style="border-bottom:1px solid #666; font-weight:bold;">Our Policies</li>
+									<li>Cancellations and Returnst</li>
+									<li>Shipping</li>
+									<li>Payments</li>
+									<li>Ordering and Tracking</li>
+									
+                                  
+							</ul>
+							</div>
+                            
+                            <div class="content7box1">
+							<ul style="list-style:none; line-height:1.5; font-family:Arial, Helvetica, sans-serif; font-size:12px;">
+									<li style="border-bottom:1px solid #666; font-weight:bold;">Join us on</li>
+									<li><img src="images/img6.jpg" style="float:left;" />Twteer</li>
+									<li><img src="images/f.jpg" style=" float:left; margin-left:-22px; margin-top:5px;"  />Facebook</li>
+									
+									
+							</ul>
+							</div>
+                            
+                            
+                            <div class="content7box1">
+							<ul style="list-style:none; line-height:1.5; font-family:Arial, Helvetica, sans-serif; font-size:12px;">
+									<li style="border-bottom:1px solid #666; font-weight:bold;">Payment Methods</li>
+									
+                                    <li><img src="images/img10.jpg" /><img src="images/img10.jpg" /><img src="images/img10.jpg" />
+                                    <p style="font-weight:bold;">Shipping Partner</p> </li>
+                                    <img src="images/img11.png" width="135" height="91" style="float:left; margin-left:-20px;" />
+							</ul>
+							</div>
+                            
+<div class="content7box1" style="width:280px;">
+							<ul style="list-style:none; line-height:1.5; font-family:Arial, Helvetica, sans-serif; font-size:12px;">
+									<li style="border-bottom:1px solid #666; font-weight:bold;">Payment Methods</li>
+									
+                                   
+							       <div style="height:180px; width:230px; float:left; border:1px #CCC solid; margin-top:5px; padding:6px; "><p>Sign uest p to receive special offers and the latstyle news. </p>
+                                   <input type="text" name=""  style="height:30px; width:180px; margin-left:20px;"/>
+                                   <div class="bottam">For Women</div><div class="bottam">For Women</div>
+                                   <p style="font-size:11px;">Your data will not be shared with others and you can unsubscribe at any time. </p>
+                                   </div>.
+                            </ul>
+				  </div>
+				</div>
+</div>
+</body>
+</html>

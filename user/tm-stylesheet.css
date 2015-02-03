@@ -1,0 +1,20 @@
+.items .product-price{
+	background:url(images/price_box.gif) no-repeat left top;
+	color: #000;
+	display: block;
+	width: 80px;	
+	border-radius:70px;
+	height:81px;
+	top: 0;	
+	padding:0px;
+	text-align:center;
+	z-index:999;
+
+}
+
+.items .price-display{ width:80px; height:81px; vertical-align:middle; text-align:center;}
+
+.item .imagecontainers:hover img{ opacity:0.4;}
+.box-up-sell .imagecontainers:hover img{ opacity:0.4;}
+.cms-home .products-grid .overlayprice{ text-align:right; padding-bottom:5px; width:154px !important;}
+.products-grid .overlayprice{ text-align:right; padding-bottom:5px; width:190px !important;}
