@@ -4,6 +4,9 @@ session_start();
 if (!$_SESSION['name'])
 header("location:../login.php");
 ini_set('display_errors',0);
+  $currentday = date("D");
+ //if($currentday!="Sat")
+ //{ header("location:home.php");}
 ?>
 <?php include_once('database.php'); ?>
 <html>
@@ -119,28 +122,39 @@ include_once("topbar.php");
 							if($amin!=0)
 								{
 								 //$a=$amin*3*100;
+								 $countday=0;
+								 $amin1=0;
+								 $cou=0;
+								 while($countday<7)
+								 { 
 							$today=date("Y-m-d");
-                                                        $date = strtotime("-7 day");
+                                                        $date = strtotime("-$countday day");
 						        $lastdate=date('Y-m-d', $date);
                                                         $fetchuser=mysql_query("select * from `$user`");
 							$fouser=mysql_numrows($fetchuser);
-							$cou=0;
+							
 							while($fuser=mysql_fetch_array($fetchuser))
 							{
 							    //echo "select * from `$reg_table` where `userid`='$fuser[down]' and `jod` between '$lastdate' and '$today'";
-							   $founduser=mysql_query("select * from `$reg_table` where `userid`='$fuser[down]' and `jod` between '$lastdate' and '$today'");
+							   //$founduser=mysql_query("select * from `$reg_table` where `userid`='$fuser[down]' and `jod` between '$lastdate' and '$today'");
+							   $founduser=mysql_query("select * from `$reg_table` where `userid`='$fuser[down]' and `jod` like '$lastdate'");
 							   $usercount=mysql_numrows($founduser);
-							   $cou++;
+							   if($usercount>0)
+							   { $cou++;}
 							}
-							 $cou;
-							if(($pair1*2+3)<=21)
+							$countday++;
+							    }
+							$cou;
+							if($cou<=21)
 							{
-							$a=$amin*100;
+							//$a=$amin*100;
 							}else
 							{
-							    $amin=10;
-							    $a=$amin*100;
+							    $amin=10; 
 							}
+							$amin1=$amin1+$amin;
+							$a=$amin1*100;
+							
 							if($bro_min!=0)
 								{
 								 $bmount=$bro_min*100;
