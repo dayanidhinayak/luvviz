@@ -121,39 +121,38 @@ include_once("topbar.php");
 							$axmin=$pair-$res1['spoint'];
 							if($amin!=0)
 								{
-								 //$a=$amin*3*100;
-								 $countday=0;
 								 $amin1=0;
 								 $cou=0;
-								 while($countday<7)
-								 { 
+
 							$today=date("Y-m-d");
-                                                        $date = strtotime("-$countday day");
-						        $lastdate=date('Y-m-d', $date);
                                                         $fetchuser=mysql_query("select * from `$user`");
 							$fouser=mysql_numrows($fetchuser);
 							
 							while($fuser=mysql_fetch_array($fetchuser))
 							{
-							    //echo "select * from `$reg_table` where `userid`='$fuser[down]' and `jod` between '$lastdate' and '$today'";
-							   //$founduser=mysql_query("select * from `$reg_table` where `userid`='$fuser[down]' and `jod` between '$lastdate' and '$today'");
-							   $founduser=mysql_query("select * from `$reg_table` where `userid`='$fuser[down]' and `jod` like '$lastdate'");
+							   $founduser=mysql_query("select * from `$reg_table` where `userid`='$fuser[down]' and `jod` like '$today'");
 							   $usercount=mysql_numrows($founduser);
 							   if($usercount>0)
 							   { $cou++;}
 							}
-							$countday++;
-							    }
-							$cou;
-							if($cou<=21)
+
+							 $cou;
+							 if($cou!=0){
+							if($cou<=21 && $amin<=10)
 							{
-							//$a=$amin*100;
-							}else
-							{
-							    $amin=10; 
-							}
 							$amin1=$amin1+$amin;
 							$a=$amin1*100;
+							}else
+							{
+							    $amin=10;
+							    $amin1=$amin1+$amin;
+							$a=$amin1*100;
+							}
+							 }else{
+							    $amin=0;
+							    $amin1=$amin1+$amin;
+							    $a=$amin1*100;
+							    }
 							
 							if($bro_min!=0)
 								{
