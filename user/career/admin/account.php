@@ -92,15 +92,32 @@ include_once("topbar.php");
 							$min=min($left,$right);
 							 $max=max($left,$right);
 							$accounttable=$acc.$uid;
-							
+							$pair1=0;
+							$pair2=0;
+							$pair3=0;
 							if($max>=2 && $min!=0)
 							{
                                                         //$x=intval($max/2);
                                                         //$pair=min($x,$min);
-						        $max1=$max-2;
-							$min1=$min-1;
-							$pair1=min($max1,$min1);
-							$pair=$pair1+1;
+							
+							if($right>2)
+							{
+							    $max1=$right-2;
+							    $min1=$left-1;
+							    $pair1=min($max1,$min1);
+							}
+							if($left>2)
+							{
+							    $max1=$left-2;
+							    $min1=$right-1;
+							    $pair2=min($max1,$min1);
+							}
+							
+						        //$max1=$max-2;
+							//$min1=$min-1;
+							//$pair3=min($max1,$min1);
+							$pair3=min($pair1,$pair2);
+							$pair=$pair3+1;
                                                         
                                                         $fetch=mysql_query("select * from `$reg_table` where `sid`='$uid'");
 							$brought1=mysql_numrows($fetch);
@@ -121,39 +138,15 @@ include_once("topbar.php");
 							$axmin=$pair-$res1['spoint'];
 							if($amin!=0)
 								{
-								 $amin1=0;
-								 $cou=0;
-
-							$today=date("Y-m-d");
-                                                        $fetchuser=mysql_query("select * from `$user`");
-							$fouser=mysql_numrows($fetchuser);
-							
-							while($fuser=mysql_fetch_array($fetchuser))
+							if($amin<=10)
 							{
-							   $founduser=mysql_query("select * from `$reg_table` where `userid`='$fuser[down]' and `jod` like '$today'");
-							   $usercount=mysql_numrows($founduser);
-							   if($usercount>0)
-							   { $cou++;}
-							}
-
-							 $cou;
-							 if($cou!=0){
-							if($cou<=21 && $amin<=10)
-							{
-							$amin1=$amin1+$amin;
-							$a=$amin1*100;
+							    $a=$amin*100;
 							}else
 							{
 							    $amin=10;
-							    $amin1=$amin1+$amin;
-							$a=$amin1*100;
+							    $a=$amin*100;
 							}
-							 }else{
-							    $amin=0;
-							    $amin1=$amin1+$amin;
-							    $a=$amin1*100;
-							    }
-							
+							 
 							if($bro_min!=0)
 								{
 								 $bmount=$bro_min*100;

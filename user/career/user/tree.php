@@ -55,7 +55,7 @@ if(isset($_REQUEST['mid']))
 			<div id="content_conbox_bottom" style="padding-bottom:20px; width:760px;">
 									        <table style="width:717px;font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#333333; height:280px; margin-left:15px;">
             <tr align="center">
-		<td colspan=16><?php echo "$user1/$uid"; ?></br><img src='images/tree.png' /></td></tr>
+		<td colspan=16><?php echo "$user1/$usid"; ?></br><img src='images/tree.png' /></td></tr>
             <tr align="center">
 		<td colspan=8 style="width: 30px;" ><?php $x=getdetails($mid*2); if($x){ echo $x['name'].'/'.$x['userid']."<br/><a href='tree.php?mid=".($mid*2)."'><img src='images/tree.png' /></a>"; } else echo "<img src='images/tree0.png'/>";?></td>
 		<td colspan=8 style="width: 30px;"><?php $x=getdetails($mid*2+1); if($x){ echo $x['name'].'/'.$x['userid']."<br/><a href='tree.php?mid=".($mid*2+1)."'><img src='images/tree.png' /> </a>"; } else echo "<img src='images/tree0.png'/>";?></td> </tr>
