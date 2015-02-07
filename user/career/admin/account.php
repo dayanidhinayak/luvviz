@@ -29,8 +29,11 @@ border-collapse:collapse; border:1px solid #ccc; text-align:center;
 }
 </style>
 	<script>
-function pay(amin,tname,uid,bmin,amt,usid)
+function pay(amin,tname,uid,bmin,amt,usid,name)
 {
+     var x=confirm("Do you want to pay "+tname +" Name=> "+ name);
+     if (x){
+
 if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
@@ -50,8 +53,9 @@ xmlhttp.onreadystatechange=function()
  
     }
   }
-xmlhttp.open("GET","payaccount.php?points="+amin+'&tname='+tname+'&bmin='+bmin+'&amount='+amt+'&userid='+usid,true);
+xmlhttp.open("GET","payaccount.php?points="+amin+'&tname='+tname+'&bmin='+bmin+'&amount='+amt+'&userid='+usid+'&name='+name,true);
 xmlhttp.send();
+     }
 }
 function showdetail(tname) {
     window.open('detailsacct.php?q='+tname);
@@ -76,6 +80,7 @@ include_once("topbar.php");
 								<th>Pairs</th>
 								<th>Amount</th>
 							<th>Spill</th>
+							<th>Actual Amount</th>
 								<th>Action</th>
 							</tr>
 							<?php
@@ -83,7 +88,7 @@ include_once("topbar.php");
 							$fet=mysql_query("select * from `$reg_table`");
 							  $acc='account';  
 							while($res=mysql_fetch_array($fet))
-							{ $x=0;
+							{ 
 								$left=$res['left'];
 								$right=$res['right'];
 								$uid=$res['userid'];
@@ -156,6 +161,8 @@ include_once("topbar.php");
 								//$res3=mysql_fetch_array($fet3);
 							//$sprize=$res3['sprize'];
 							 $amount=$a+$bmount;
+							  $less=$amount*0.153;
+							    $total=$amount-(10+$less);
 							   ?>
 							   <tr>
 								<td onclick="showdetail('<?php  echo $accounttable; ?>')"><?php echo $nam; ?></td>
@@ -163,8 +170,36 @@ include_once("topbar.php");
 								<td align="center"><?php echo $amin; ?></td>
 								<td align="center"><?php echo $amount; ?></td>
 							<td align="center"><?php echo $bro_min; ?></td>
+							<td align="center"><?php echo $total; ?></td>
 							<!--<td align="center"><?php echo $sprize; ?></td>-->
-								<td><input type="button" value="Pay"id="<?php echo $uid; ?>" onclick="pay('<?php echo $amin; ?>','<?php echo $accounttable; ?>','<?php echo $uid; ?>','<?php echo $bro_min; ?>','<?php echo $amount; ?>','<?php echo $uid; ?>')"</td>
+								<td><input type="button" value="Pay"id="<?php echo $uid; ?>" onclick="pay('<?php echo $amin; ?>','<?php echo $accounttable; ?>','<?php echo $uid; ?>','<?php echo $bro_min; ?>','<?php echo $amount; ?>','<?php echo $uid; ?>','<?php echo $nam;?>')"</td>
+							   </tr>
+							   
+							<?php
+                                                        }
+							if($amin==0 && $bro_min!=0)
+								{
+							if($bro_min!=0)
+								{
+								 $bmount=$bro_min*100;
+							}
+							else{ $bmount=0;}
+							//$fet3=mysql_query("SELECT SUM(prize) as sprize  FROM `prize` where `userid`='$uid' and `status`='0'") or die(mysql_error());
+								//$res3=mysql_fetch_array($fet3);
+							//$sprize=$res3['sprize'];
+							 $amount=$bmount;
+							  $less=$amount*0.153;
+							    $total=$amount-(10+$less);
+							   ?>
+							   <tr>
+								<td onclick="showdetail('<?php  echo $accounttable; ?>')"><?php echo $nam; ?></td>
+								<td align="center"><?php echo $res['userid']; ?></td>
+								<td align="center"><?php echo $amin; ?></td>
+								<td align="center"><?php echo $amount; ?></td>
+							<td align="center"><?php echo $bro_min; ?></td>
+							<td align="center"><?php echo $total; ?></td>
+							<!--<td align="center"><?php echo $sprize; ?></td>-->
+								<td><input type="button" value="Pay"id="<?php echo $uid; ?>" onclick="pay('<?php echo $amin; ?>','<?php echo $accounttable; ?>','<?php echo $uid; ?>','<?php echo $bro_min; ?>','<?php echo $amount; ?>','<?php echo $uid; ?>','<?php echo $nam;?>')"</td>
 							   </tr>
 							   
 							<?php
