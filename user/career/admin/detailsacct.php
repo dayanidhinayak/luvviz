@@ -31,8 +31,9 @@
                         <th>Slno</th>
                         <th>Date</th>
                         <th>Amount</th>
-                        <th>Point</th>
-			<th>Direct</th>
+                        <th>Pair</th>
+			<th>Actual Amount</th>
+			<th>Spill</th>
                        <!--<th>Status</th>-->
                         
                     <?php
@@ -40,12 +41,16 @@
                     $fet=mysql_query("select * from `$account`");
                    while($res=mysql_fetch_array($fet))
                    {
+		     $amount=$res['amount'];
+		     $less=$amount*0.153;
+		     $total=$amount-(10+$less);
                     ?>
                     <tr>
                         <td align="center"><?php echo $res['slno']; ?></td>
                         <td align="center"><?php echo $res['date']; ?></td>
                         <td align="center"><?php echo $res['amount']; ?></td>
                         <td align="center"><?php echo $res['points']; ?></td>
+			<td align="center"><?php echo $total ?></td>
 			<td align="center"><?php echo $res['brought']; ?></td>
                          <!-- <td><?php echo $res['status']; ?></td>-->
                     </tr>
